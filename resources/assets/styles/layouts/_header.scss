@@ -1,0 +1,49 @@
+.banner .nav li {
+  @extend .nav-item;
+}
+
+.banner .nav a {
+  @extend .nav-link;
+}
+
+.upper-header {
+  background-color: map-get($theme-colors, dark-gray);
+  color: #fff;
+  height: 30px;
+
+  h4 {
+    font-size: 1rem;
+    margin-bottom: 0;
+    margin-top: 5px;
+  }
+}
+
+.logo {
+  width: 190px;
+  background-color: map-get($theme-colors, logo-red);
+  height: 105px;
+  color: #fff;
+  display: flex;
+  font-size: 3rem;
+  line-height: 1;
+  font-family: $open;
+  font-weight: bolder;
+  margin-top: -30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header-main-menu {
+  justify-content: flex-end;
+  font-family: $lato;
+
+  a {
+    color: map-get($theme-colors, dark-gray);
+    text-transform: uppercase;
+  }
+}

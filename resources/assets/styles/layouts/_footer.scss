@@ -1,0 +1,25 @@
+footer.content-info {
+  background-color: #1a1c26;
+  padding: 50px 0;
+  color: #fff;
+}
+
+.about-footer {
+  color: #fff;
+  padding: 35px 15px;
+
+  &.black-bg {
+    background-color: #000;
+  }
+
+  h4 {
+    text-transform: uppercase;
+    font-family: $lato;
+    font-size: 1.2rem;
+  }
+}
+
+.row-eq-height {
+  display: flex;
+  flex-wrap: wrap;
+}

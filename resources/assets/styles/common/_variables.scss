@@ -1,0 +1,19 @@
+/** Import Bootstrap functions */
+@import "~bootstrap/scss/functions";
+
+$theme-colors: (
+  primary: #525ddc,
+  dark-gray: #000,
+  logo-red: #ed2a2a,
+  dark-blue: #1a1c26,
+);
+
+$open: "Open Sans", sans-serif;
+$lato: "Lato", sans-serif;
+
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+$navbar-dark-toggler-icon-bg: none;
+$navbar-light-toggler-icon-bg: none;
+$border-regular: 1px solid #f6f7f8;
+$yellow-star: #ffc600;
+$gray-star: #c1c8ce;
