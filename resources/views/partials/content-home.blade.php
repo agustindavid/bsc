@@ -22,23 +22,51 @@ $mayoristImage=get_field('mayorist_img');
     <div class="search-inner">
       <h3>Busca el modelo de tu vehiculo</h3>
       <?php
-      echo do_shortcode('[ivory-search id="41" title="Default Search Form"]');
+      echo do_shortcode('[ivory-search id="329" title="Default Search Form"]');
       ?>
     </div>
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <p> <i class="far fa-star"></i> Lorem ipsum dolor sit amet</p>
+      <div class="col-md-3 company-feature">
+        <div class="row">
+          <div class="col-md-3">
+            <p><img src="@asset('images/star_icon.png')"></p>
+          </div>
+          <div class="col-md-9">
+            <p>Calidad en nuestros productos y servicios</p></p>
+          </div>
+        </div>
       </div>
-      <div class="col-md-3">
-        <p>Lorem ipsum dolor sit amet</p>
+      <div class="col-md-3 company-feature">
+        <div class="row">
+          <div class="col-md-3 align-self-center">
+            <p><img src="@asset('images/hands_icon.png')"></p>
+          </div>
+          <div class="col-md-9 align-self-center">
+            <p>Comprometidos con la excelencia</p>
+          </div>
+        </div>
       </div>
-      <div class="col-md-3">
-        <p>Lorem ipsum dolor sit amet</p>
+      <div class="col-md-3 company-feature">
+        <div class="row">
+          <div class="col-md-3 align-self-center">
+            <p><img src="@asset('images/disc_icon.png')"></p>
+          </div>
+          <div class="col-md-9 align-self-center">
+            <p>Alta tecnología en sistemas de frenos</p>
+          </div>
+        </div>
       </div>
-      <div class="col-md-3">
-        <p>Lorem ipsum dolor sit amet</p>
+      <div class="col-md-3 company-feature">
+        <div class="row">
+          <div class="col-md-3 align-self-center">
+            <p><img src="@asset('images/network_icon.png')"></p>
+          </div>
+          <div class="col-md-9 align-self-center">
+            <p>Trabajamos para garantizar su seguridad</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -56,10 +84,13 @@ $mayoristImage=get_field('mayorist_img');
         $pod = pods('products_cat');
         $pod->fetch($product_cat->term_id);
         $cat_img=$pod->get_field('category_image');
+        $cat_icon=$pod->get_field('cat_icon');
+        $cat_icon_url=pods_image_url($cat_icon[0]['ID'], 'full');
         $cat_img_url=pods_image_url($cat_img[0]['ID'], 'full');
       @endphp
       <div class="col-md-4 block-item no-padding" style="background-image:url('{{$cat_img_url}}')">
         <div class="block-content">
+          <p><img class="cat-icon" src="{{$cat_icon_url}}" alt=""></p>
           <h3>{{$product_cat->name}}</h3>
           <a href="#">Ver más</a>
         </div>
@@ -72,24 +103,24 @@ $mayoristImage=get_field('mayorist_img');
 <section class="suppliers-banner">
   <div class="container">
     <div class="suppliers-banner-wrap row">
-      <div class="col-md-4 no-padding white-supplier">
+      <div class="col-md-5 no-padding white-supplier">
         <div class="white-inner">
           <h3>Distribuidores<br>Autorizados</h3>
           <p>Somos los distribuidores autorizados para peru en latinoamerica</p>
           <a href="#">Ver Todos</a>
         </div>
       </div>
-      <div class="col-md-8 suppliers-img no-padding" style="background-image:url('{{$suppliersImage}}')"></div>
+      <div class="col-md-7 suppliers-img no-padding" style="background-image:url('{{$suppliersImage}}')"></div>
     </div>
   </div>
 </section>
 <section class="featured-products">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <h2>Productos Destacados</h2>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-8">
         <hr>
       </div>
     </div>
@@ -99,6 +130,16 @@ $mayoristImage=get_field('mayorist_img');
         if ( $featured->have_posts() ) {
           while ( $featured->have_posts() ) {
             $featured->the_post();
+            $terms = wp_get_post_terms( get_the_ID(), 'products_cat');
+            $marcas = wp_get_post_terms( get_the_ID(), 'marca');
+            $parents=[];
+
+            foreach($marcas as $marca) {
+              if($marca->parent==0){
+                $parents[]=$marca;
+              }
+            }
+            $rating=get_field('rating');
             for($i=0; $i<6; $i++){
        ?>
       <div class="col-md-3 featured-product-wrap">
@@ -108,8 +149,27 @@ $mayoristImage=get_field('mayorist_img');
           </div>
           <div class="card-body text-center">
             <h5 class="card-title"><?php the_title() ?></h5>
-            <p class="card-text">Honda CRV 2015</p>
-            <p><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star gray-star"></i><i class="fas fa-star gray-star"></i></p>
+            <p class="card-text">
+                <?php
+                foreach ($parents as $parent) {
+                  $models=get_terms(array("taxonomy"=>'marca', "parent"=>$parent->term_id));
+                  foreach ($models as $model) {
+                    echo $parent->name . ' ' . $model->name . '<br>';
+                  }
+                }
+                ?>
+              </p>
+            </p>
+            <p>
+              <?php for($j=0; $j<5; $j++){
+                if($j < $rating) { ?>
+                  <i class="fas fa-star yellow-star"></i>
+                <?php } else { ?>
+                  <i class="fas fa-star gray-star"></i>
+              <?php
+                }
+              }?>
+             </p>
           </div>
         </div>
       </div>
@@ -131,8 +191,8 @@ $mayoristImage=get_field('mayorist_img');
         </div>
       </div>
       <div class="col-md-6 no-padding-right">
-          <div class="block-item" style="background-image:url('{{$cat_img_url}}')">
-            <h3>Contacto</h3>
+        <div class="block-item" style="background-image:url('{{$cat_img_url}}')">
+          <h3>Faq</h3>
           </div>
       </div>
     </div>
@@ -148,8 +208,13 @@ $mayoristImage=get_field('mayorist_img');
             <a href="#">Ver Todos</a>
           </div>
         </div>
-        <div class="col-md-6  no-padding">
-          <img src="{{$mayoristImage}}" alt="">
+        <div class="col-md-5  no-padding">
+          <img class="mayorist-img" src="{{$mayoristImage}}" alt="">
+        </div>
+        <div class="col-md-1">
+          <div class="black-clip">
+            <a href="">+</a>
+          </div>
         </div>
       </div>
     </div>

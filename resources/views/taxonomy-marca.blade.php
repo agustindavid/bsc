@@ -88,19 +88,9 @@
       </div>
       </div>
     @while(have_posts()) @php the_post() @endphp
-    <?php for($i=1; $i<12; $i++){
-      if($i==1){ ?>
-        <div class='row'>
-        @include('partials.content-producto')
-      <?php }else if($i%4==0){ ?>
-        @include('partials.content-producto')
-        </div><div class='row'>
-      <?php } else { ?>
-        @include('partials.content-producto')
-      <?php } ?>
-
-    <?php } ?>
-    </div>
+        <div class='row no-margin'>
+          @include('partials.content-producto')
+        </div>
     @endwhile
       </div>
       </div>

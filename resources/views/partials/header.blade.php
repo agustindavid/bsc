@@ -1,7 +1,7 @@
 <div class="upper-header">
   <div class="container">
     <div class="row justify-content-end">
-      <h4 class="text-right">Why Tire Rack? Order Tracking Customer Support 888-541-1777 LOWER PRICE + RISK FREE GUARANTEE (DETAILS)</h4>
+      <p class="text-right info-header">Av. Manuel Güirrior N° 818, Pueblo Libre - Lima <strong>T: +51 01.396.22.52</strong> <span>|</span> Horario de atención: <strong>Lunes a viernes: 8:00AM - 6:30PM</strong></p>
     </div>
   </div>
 </div>
