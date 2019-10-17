@@ -1,12 +1,14 @@
 export default {
   init() {
     $('.featured-products-slider').slick({
-      dots: true,
-      infinite: false,
+      dots: false,
+      infinite: true,
       speed: 300,
       rows: 0,
       slidesToShow: 4,
       slidesToScroll: 4,
+      prevArrow:'<a class="arrow-prev slick-arrow"><span><</span></a>',
+      nextArrow:'<a class="arrow-next slick-arrow"><span>></span></a>',
       responsive: [
         {
           breakpoint: 1024,

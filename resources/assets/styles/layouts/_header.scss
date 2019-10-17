@@ -6,10 +6,14 @@
   @extend .nav-link;
 }
 
+.no-padding-right {
+  padding-right: 0 !important;
+}
+
 .upper-header {
   background-color: map-get($theme-colors, dark-gray);
   color: #fff;
-  padding: 10px 0;
+  padding: 4px 0;
 
   h4 {
     font-size: 1rem;
@@ -21,6 +25,7 @@
 .info-header {
   font-size: 0.8rem;
   margin-bottom: 0;
+  position: relative;
 
   strong {
     text-transform: uppercase;
@@ -28,6 +33,20 @@
 
   span {
     margin: 0 25px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  &.first::after {
+    position: absolute;
+    background: #fff;
+    width: 1px;
+    height: 90%;
+    content: "";
+    top: 2px;
+    right: 15px;
   }
 }
 
@@ -52,11 +71,58 @@
 }
 
 .header-main-menu {
+  justify-content: space-between;
+  font-family: $lato;
+
+  a {
+    color: map-get($theme-colors, dark-gray);
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.25s all ease;
+
+    &::before {
+      position: absolute;
+      width: 0;
+      height: 1px;
+      content: "";
+      background-color: #000;
+      bottom: 5px;
+      transition: 0.25s all ease;
+    }
+
+    &:hover {
+      font-weight: bold;
+    }
+
+    &:hover::before {
+      width: 95%;
+    }
+  }
+}
+
+.menu-redes {
   justify-content: flex-end;
   font-family: $lato;
 
   a {
     color: map-get($theme-colors, dark-gray);
     text-transform: uppercase;
+    transition: 0.15s all ease;
+
+    &:hover {
+      color: map-get($theme-colors, logo-red);
+    }
   }
+}
+
+.menu-redes li:last-child a {
+  padding-right: 0;
+}
+
+.menu-redes li > a {
+  font-size: 1.8rem;
+}
+
+.header-main-menu:first-child a {
+  padding-left: 0;
 }

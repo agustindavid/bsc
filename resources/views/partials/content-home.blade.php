@@ -20,7 +20,7 @@ $mayoristImage=get_field('mayorist_img');
 <section class="search-section">
   <div class="search-wrap container">
     <div class="search-inner">
-      <h3>Busca el modelo de tu vehiculo</h3>
+      <h3><span>Busca el modelo de tu vehículo</span></h3>
       <?php
       echo do_shortcode('[ivory-search id="329" title="Default Search Form"]');
       ?>
@@ -41,7 +41,7 @@ $mayoristImage=get_field('mayorist_img');
       <div class="col-md-3 company-feature">
         <div class="row">
           <div class="col-md-3 align-self-center">
-            <p><img src="@asset('images/hands_icon.png')"></p>
+            <p><img src="@asset('images/hands.svg')"></p>
           </div>
           <div class="col-md-9 align-self-center">
             <p>Comprometidos con la excelencia</p>
@@ -88,11 +88,12 @@ $mayoristImage=get_field('mayorist_img');
         $cat_icon_url=pods_image_url($cat_icon[0]['ID'], 'full');
         $cat_img_url=pods_image_url($cat_img[0]['ID'], 'full');
       @endphp
-      <div class="col-md-4 block-item no-padding" style="background-image:url('{{$cat_img_url}}')">
+      <div class="col-md-4 block-item no-padding">
+          <div class="block-item-img" style="background-image:url('{{$cat_img_url}}')"></div>
         <div class="block-content">
           <p><img class="cat-icon" src="{{$cat_icon_url}}" alt=""></p>
           <h3>{{$product_cat->name}}</h3>
-          <a href="#">Ver más</a>
+          <a href="{{get_term_link($product_cat->term_id)}}">Ver más</a>
         </div>
       </div>
 
@@ -102,11 +103,11 @@ $mayoristImage=get_field('mayorist_img');
 </section>
 <section class="suppliers-banner">
   <div class="container">
-    <div class="suppliers-banner-wrap row">
+    <div class="suppliers-banner-wrap row no-margin">
       <div class="col-md-5 no-padding white-supplier">
         <div class="white-inner">
-          <h3>Distribuidores<br>Autorizados</h3>
-          <p>Somos los distribuidores autorizados para peru en latinoamerica</p>
+          <h3>Agentes</h3>
+          <p>Tiendas afiliadas a BSC que comercializan productos originales CBK en Perú</p>
           <a href="#">Ver Todos</a>
         </div>
       </div>
@@ -118,7 +119,7 @@ $mayoristImage=get_field('mayorist_img');
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <h2>Productos Destacados</h2>
+        <h2><div class="stripes">|||||||</div>Productos Destacados</h2>
       </div>
       <div class="col-md-8">
         <hr>
@@ -140,6 +141,7 @@ $mayoristImage=get_field('mayorist_img');
               }
             }
             $rating=get_field('rating');
+            $percent_rating=($rating*100)/5;
             for($i=0; $i<6; $i++){
        ?>
       <div class="col-md-3 featured-product-wrap">
@@ -160,16 +162,20 @@ $mayoristImage=get_field('mayorist_img');
                 ?>
               </p>
             </p>
-            <p>
-              <?php for($j=0; $j<5; $j++){
-                if($j < $rating) { ?>
+              <div class="no-yellow">
+                <i class="fas fa-star gray-star"></i>
+                <i class="fas fa-star gray-star"></i>
+                <i class="fas fa-star gray-star"></i>
+                <i class="fas fa-star gray-star"></i>
+                <i class="fas fa-star gray-star"></i>
+              <div class="yes-yellow" style="width:{{$percent_rating}}%">
                   <i class="fas fa-star yellow-star"></i>
-                <?php } else { ?>
-                  <i class="fas fa-star gray-star"></i>
-              <?php
-                }
-              }?>
-             </p>
+                  <i class="fas fa-star yellow-star"></i>
+                  <i class="fas fa-star yellow-star"></i>
+                  <i class="fas fa-star yellow-star"></i>
+                  <i class="fas fa-star yellow-star"></i>
+                </div>
+              </div>
           </div>
         </div>
       </div>
@@ -184,14 +190,16 @@ $mayoristImage=get_field('mayorist_img');
 </section>
 <section class="home-banners">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 no-padding-left">
-        <div class="block-item" style="background-image:url('{{$cat_img_url}}')">
-          <h3>Contacto</h3>
+    <div class="row no-margin">
+      <div class="col-md-6 no-padding-left ">
+        <div class="block-item">
+          <div class="block-item-img" style="background-image:url('{{$cat_img_url}}')"></div>
+          <h3>Destacados</h3>
         </div>
       </div>
       <div class="col-md-6 no-padding-right">
-        <div class="block-item" style="background-image:url('{{$cat_img_url}}')">
+        <div class="block-item">
+            <div class="block-item-img" style="background-image:url('{{$cat_img_url}}')"></div>
           <h3>Faq</h3>
           </div>
       </div>
@@ -200,12 +208,12 @@ $mayoristImage=get_field('mayorist_img');
 </section>
 <section class="suppliers-banner">
     <div class="container">
-      <div class="suppliers-banner-wrap row">
+      <div class="suppliers-banner-wrap row no-margin">
         <div class="col-md-6 no-padding">
           <div class="white-inner">
             <h3>Pedidos al<br>mayor</h3>
             <p>Escríbenos para enviarte una cotización personalizada</p>
-            <a href="#">Ver Todos</a>
+            <a href="#">Contáctanos</a>
           </div>
         </div>
         <div class="col-md-5  no-padding">

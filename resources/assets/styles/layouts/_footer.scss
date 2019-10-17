@@ -1,12 +1,12 @@
 footer.content-info {
   background-color: #1a1c26;
-  padding: 50px 0;
+  padding: 50px 0 0 0;
   color: #fff;
 }
 
 .about-footer {
   color: #fff;
-  padding: 35px 15px;
+  padding: 35px 0;
 
   &.black-bg {
     background-color: #000;
@@ -16,10 +16,75 @@ footer.content-info {
     text-transform: uppercase;
     font-family: $lato;
     font-size: 1.2rem;
+    font-weight: 900;
+    margin-bottom: 25px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    font-weight: 100;
+
+    a {
+      color: #fff;
+    }
   }
 }
 
 .row-eq-height {
   display: flex;
   flex-wrap: wrap;
+}
+
+.rounded-row {
+  background-color: #707070;
+  padding: 15px;
+  border-radius: 50px;
+
+  p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-weight: 100;
+  }
+}
+
+.footer-list {
+  padding: 0;
+  list-style: none;
+
+  li {
+    list-style: none;
+
+    a {
+      font-size: 1rem;
+      font-weight: 100;
+      color: #fff;
+    }
+  }
+}
+
+.cbk-logo-wrap {
+  &::after {
+    position: absolute;
+    right: 15px;
+    width: 1px;
+    height: 30px;
+    background-color: #fff;
+    content: "";
+    top: 50%;
+    margin-top: -15px;
+  }
+}
+
+.cbk-logo {
+  height: 50px;
+  width: 100px;
+  background-color: red;
+  margin: auto;
+  border-radius: 100%;
+  text-align: center;
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.8rem;
 }

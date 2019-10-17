@@ -31,6 +31,7 @@
   position: relative;
   transition: 0.15s all ease-out;
   font-family: $lato;
+  cursor: pointer;
 
   h4 {
     margin: 0;
@@ -60,6 +61,7 @@
 
 .inner-sidebar {
   padding: 0;
+  display: none;
 
   ul {
     list-style: none;
@@ -69,6 +71,14 @@
 
     li {
       margin: 5px 0;
+
+      a {
+        color: #000;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
 }
@@ -76,17 +86,19 @@
 .products-bc {
   background-color: #f1f3f4;
   padding: 5px 15px;
+  margin-top: 35px;
 }
 
 .filters-menu {
   border: 1px solid #f1f3f4;
   padding: 5px 15px;
+  margin-bottom: 25px;
 }
 
 .square {
   width: 25px;
   height: 100%;
-  display: inline-block;
+  display: none;
   text-align: center;
   background: #000;
   position: relative;
@@ -136,10 +148,18 @@
 
 .product-detail {
   margin-bottom: 25px;
-}
+  transition: 0.2s all ease;
+  border: 1px solid #eee;
+  border-right: 5px solid #eee;
 
-.product-detail:first-child {
-  margin-top: 25px;
+  &:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    border-right: 5px solid #ed2a2a;
+  }
+
+  &.active {
+    border-right: 5px solid #ed2a2a;
+  }
 }
 
 .more-info-product {
@@ -169,22 +189,54 @@
 
 .product-main-details {
   padding-top: 15px;
+  position: relative;
 
   h2 {
     font-size: 1.5rem;
   }
 }
 
+.brands-logos {
+  position: absolute;
+  right: 0;
+}
+
+.logo-img {
+  max-width: 30px;
+  margin-left: 5px;
+}
+
 .cat-tag {
-  background: map-get($theme-colors, logo-red);
-  display: inline-block;
-  padding: 5px 10px;
+  position: relative;
+  padding-left: 15px;
   line-height: 1;
-  color: #fff;
+  color: #888;
   text-transform: uppercase;
-  font-family: $lato;
+  font-family: "Lato", sans-serif;
   font-weight: 600;
   font-size: 0.8rem;
+
+  &::before {
+    background: map-get($theme-colors, logo-red);
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    left: 0;
+    top: 3px;
+    content: "";
+  }
+}
+
+.product-main-details h5 {
+  font-size: 1rem;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.models-wrap {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #888;
 }
 
 .rating {
@@ -202,6 +254,9 @@ a.more-info-btn {
   font-size: 1.2rem;
   font-family: $lato;
   text-transform: uppercase;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
 }
 
 .border-gray {
@@ -218,11 +273,12 @@ a.more-info-btn {
     margin-left: 30px;
     font-family: $lato;
     margin-bottom: 15px;
+    margin-top: 15px;
 
     hr {
       position: absolute;
       width: 60%;
-      top: 0;
+      top: -5px;
       right: 0;
     }
 
@@ -238,4 +294,258 @@ a.more-info-btn {
       left: -30px;
     }
   }
+}
+
+form.search-form {
+  margin-top: 25px;
+}
+
+input.search-field {
+  width: 100% !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+  padding: 25px 20px !important;
+}
+
+input.search-submit {
+  width: 10%;
+  padding: 17px 20px !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+  line-height: 1 !important;
+  background: map-get($theme-colors, logo-red) !important;
+}
+
+.search-form label {
+  font-weight: normal;
+  width: 90%;
+}
+
+section.hero.hero-us {
+  height: 500px;
+}
+
+.hero-us-content {
+  left: 0;
+  transform: translate(0, -50%);
+  width: 100%;
+
+  h4 {
+    font-size: 2.5rem;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    margin-bottom: 15px;
+
+    span {
+      font-family: "PT Sans", sans-serif;
+      color: #ed2a2a;
+      position: absolute;
+      font-size: 8rem;
+      font-weight: 100;
+      transform: scaleY(1.2) rotate(4deg);
+
+      &.open-quotes {
+        top: -40px;
+        left: -40px;
+      }
+
+      &.close-quotes {
+        top: 33px;
+      }
+    }
+  }
+}
+
+p.quote-author {
+  font-size: 1.1rem;
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  padding-left: 25px;
+  position: relative;
+  line-height: 1;
+
+  &::after {
+    content: "";
+    background: #ed2a2a;
+    width: 10px;
+    height: 90%;
+    position: absolute;
+    left: 0;
+    top: 2px;
+  }
+}
+
+.us-text {
+  position: relative;
+}
+
+.us-bg {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  top: 0;
+  background-position: center center;
+}
+
+.us-text-wrap {
+  padding: 70px 0;
+}
+
+.us-p {
+  margin-bottom: 50px;
+
+  h3 {
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    padding-left: 40px;
+    position: relative;
+
+    &::before {
+      @extend .right-triangle;
+
+      left: 0 !important;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+section.us-red {
+  background-color: #ed2a2a;
+  color: #fff;
+  padding: 30px 0;
+}
+
+.red-tag {
+  margin-bottom: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.gray-btn {
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  padding: 8px 20px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+#accordion {
+  padding: 70px 0;
+}
+
+.question-faq {
+  border-top: 1px solid #000;
+  transition: 0.25s all ease;
+  cursor: pointer;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    background-color: #f1f3f4;
+
+    h5 {
+      &::after {
+        color: #ed2a2a;
+      }
+    }
+
+    .number-faq {
+      color: #ed2a2a;
+    }
+  }
+
+  &.active-faq {
+    background-color: #f1f3f4;
+
+    h5 {
+      &::after {
+        color: #ed2a2a;
+        content: "-";
+      }
+    }
+
+    .number-faq {
+      color: #ed2a2a;
+    }
+  }
+}
+
+.faq-wrap:last-child .question-faq {
+  border-bottom: 1px solid #000;
+  margin-bottom: 70px;
+}
+
+.question-faq h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+  position: relative;
+  margin: 0 15px;
+  padding: 15px 0;
+
+  .number-faq {
+    position: absolute;
+    font-size: 1.7rem;
+    top: 12px;
+    transition: 0.2s all ease;
+
+    + p {
+      margin-bottom: 0;
+      padding: 0 50px;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    content: "+";
+    top: 50%;
+    right: 15px;
+    color: #000;
+    line-height: 1;
+    margin-top: -10px;
+  }
+}
+
+.faq-cat-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  position: relative;
+  padding-left: 30px;
+
+  &::before {
+    @extend .right-triangle;
+
+    top: 8px !important;
+    left: 0 !important;
+  }
+}
+
+.category-wrap:last-child .faq-wrap .question-faq {
+  margin-bottom: 0;
+}
+
+.hero.hero-faq {
+  height: 320px;
+}
+
+.hero-faq .hero-content {
+  left: 0;
+  width: 100%;
+  transform: translate(0, -20%);
 }
