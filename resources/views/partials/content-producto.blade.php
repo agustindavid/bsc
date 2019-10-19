@@ -43,15 +43,15 @@ foreach($marcas as $marca) {
         $halfWay=round(count($parents)/2);
         foreach ($parents as $key => $parent) {
           if($key==0){
-              echo '<div class="col-md-6">';
+              echo '<div class="col-md-6 col-6">';
           }
           if(count($parents) <= 2){
             if ($key == 1){
-              echo '</div><div class="col-md-6">';
+              echo '</div><div class="col-md-6 col-6">';
             }
           }else if(count($parents)>2) {
             if($key==$halfWay) {
-              echo '</div><div class="col-md-6">';
+              echo '</div><div class="col-md-6 col-6">';
             }
           }
           $models=get_terms(array("taxonomy"=>'marca', "parent"=>$parent->term_id)); ?>
@@ -88,7 +88,6 @@ foreach($marcas as $marca) {
           <i class="fas fa-star yellow-star"></i>
         </div>
       </div>
-    <a href="" class="more-info-btn">+ info</a>
   </div>
   <div class="row more-info-product no-margin">
     <div class="col-md-9 border-gray">
@@ -97,6 +96,6 @@ foreach($marcas as $marca) {
             <?php the_content() ?>
       </div>
     </div>
-    <div class="close-description"><a href="#">X</a></div>
   </div>
+  <a href="" class="more-info-btn">+ info</a>
 </div>

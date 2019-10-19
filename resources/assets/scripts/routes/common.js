@@ -7,7 +7,6 @@ export default {
         $('.more-info-product', $(this).closest('.product-detail')).slideDown();
         $('.more-info-product', $(this).closest('.product-detail')).addClass('shown');
         $(this).closest('.product-detail').addClass('shadow active');
-        $(this).css('display', 'none');
       } else {
         $('.more-info-product', $(this).closest('.product-detail')).slideUp();
         $('.more-info-product', $(this).closest('.product-detail')).removeClass('shown');
@@ -36,7 +35,12 @@ export default {
         $('.question-faq').removeClass('active-faq');
         $(this).parent().addClass('active-faq');
       }
-    })
+    });
+
+    $('.toggleMenu').click(function(){
+     $('.menu-menu-1-container').toggleClass('menu-visible');
+     $('.menu-redes').toggleClass('menu-visible');
+    });
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

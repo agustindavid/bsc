@@ -151,6 +151,7 @@
   transition: 0.2s all ease;
   border: 1px solid #eee;
   border-right: 5px solid #eee;
+  position: relative;
 
   &:hover {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -548,4 +549,122 @@ section.us-red {
   left: 0;
   width: 100%;
   transform: translate(0, -20%);
+}
+
+.contact-form-wrap {
+  background: #fff;
+  padding: 15px 40px;
+  border-top: 10px solid #ed2a2a;
+}
+
+.contact-form-wrap input {
+  max-width: 100% !important;
+  border: 0 !important;
+  background-color: #f1f3f4 !important;
+  padding: 35px 15px !important;
+}
+
+.contact-form-wrap textarea {
+  border: 0 !important;
+  background: #f1f3f4 !important;
+  padding: 15px 15px !important;
+}
+
+.contact-form-wrap button[type="submit"] {
+  background-color: #ed2a2a !important;
+  color: #fff !important;
+  font-family: "Lato", sans-serif !important;
+  width: 100% !important;
+  border: 0 !important;
+  padding: 20px !important;
+}
+
+.contact-abs-wrap {
+  position: absolute;
+  top: 80px;
+  z-index: 9;
+}
+
+.hero.hero-contact {
+  height: 570px;
+}
+
+.contact-info {
+  color: #fff;
+
+  h3 {
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: bold;
+    font-family: "Lato", sans-serif;
+    position: relative;
+
+    &::before {
+      @extend .right-triangle;
+
+      top: 12px !important;
+    }
+  }
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 100px;
+
+  li {
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    margin-bottom: 15px;
+
+    i {
+      padding: 5px;
+      background: #ed2a2a;
+      font-size: 0.9rem;
+    }
+
+    span {
+      margin-left: 10px;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .rating {
+    text-align: left;
+    border-top: 1px solid #f1f3f4;
+  }
+
+  .border-gray {
+    border-right: 0;
+  }
+
+  .cats-sidebar {
+    margin-top: 15px;
+  }
+
+  .product-description {
+    h3 {
+      hr {
+        display: none;
+      }
+    }
+  }
+
+  .us-bg {
+    display: none;
+  }
+
+  .hero-us-content h4 span {
+    display: none;
+  }
+
+  .contact-abs-wrap {
+    top: 20px;
+    position: relative;
+  }
+
+  .hero.hero-contact {
+    height: auto;
+  }
 }

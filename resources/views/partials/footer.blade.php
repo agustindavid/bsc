@@ -18,7 +18,7 @@
              </ul>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-6">
             <div class="about-footer">
               <h4>Productos</h4>
               <ul class="footer-list">
@@ -33,7 +33,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-6">
             <div class="about-footer">
               <h4>Información</h4>
               <p>

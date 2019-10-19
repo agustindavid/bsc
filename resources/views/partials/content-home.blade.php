@@ -28,7 +28,7 @@ $mayoristImage=get_field('mayorist_img');
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-3 company-feature">
+      <div class="col-md-6 col-lg-3 col-sm-6 col-6 company-feature">
         <div class="row">
           <div class="col-md-3">
             <p><img src="@asset('images/star_icon.png')"></p>
@@ -38,7 +38,7 @@ $mayoristImage=get_field('mayorist_img');
           </div>
         </div>
       </div>
-      <div class="col-md-3 company-feature">
+      <div class="col-md-6 col-lg-3 col-sm-6 col-6 company-feature">
         <div class="row">
           <div class="col-md-3 align-self-center">
             <p><img src="@asset('images/hands.svg')"></p>
@@ -48,7 +48,7 @@ $mayoristImage=get_field('mayorist_img');
           </div>
         </div>
       </div>
-      <div class="col-md-3 company-feature">
+      <div class="col-md-6 col-lg-3 col-sm-6 col-6 company-feature">
         <div class="row">
           <div class="col-md-3 align-self-center">
             <p><img src="@asset('images/disc_icon.png')"></p>
@@ -58,7 +58,7 @@ $mayoristImage=get_field('mayorist_img');
           </div>
         </div>
       </div>
-      <div class="col-md-3 company-feature">
+      <div class="col-md-6 col-lg-3 col-sm-6 col-6 company-feature">
         <div class="row">
           <div class="col-md-3 align-self-center">
             <p><img src="@asset('images/network_icon.png')"></p>
@@ -144,7 +144,7 @@ $mayoristImage=get_field('mayorist_img');
             $percent_rating=($rating*100)/5;
             for($i=0; $i<6; $i++){
        ?>
-      <div class="col-md-3 featured-product-wrap">
+      <div class="col-md-3 col-4 featured-product-wrap">
         <div class="card">
           <div class="card-img-wrap">
             <?php the_post_thumbnail('full', array("class"=>"card-img-top img-fluid")) ?>
